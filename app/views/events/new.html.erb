@@ -1,0 +1,16 @@
+<div class="top">
+    <div class="top_wrapper">
+        Ranks
+        <%= button_to "Log In", "/login", method: :get %>
+    </div>
+</div>
+<div class="wrapper">
+  <div class="login_wrapper">
+    <h1>Create New Event</h1>
+    <%= form_for @event do |f| %>
+        <%= f.text_field :name, placeholder: "Event Name" %><br><br>
+        <%= f.password_field :password, placeholder: "Password" %><br><br>
+        <%= f.submit "Create" %>
+    <% end %><br>
+  </div>
+</div>
