@@ -11,7 +11,6 @@ class ItemsController < ApplicationController
       respond_to do |format|
         if @item.save
           format.html { redirect_to event_path(current_event.id), notice: "Item created." }
-          # format.json { render :show, status: :created, location: @section }
         else
           format.html { render :new, status: :unprocessable_entity }
           format.json { render json: @item.errors, status: :unprocessable_entity }
@@ -26,7 +25,6 @@ class ItemsController < ApplicationController
       respond_to do |format|
         if @item.update(item_params)
           format.html { redirect_to event_path(current_event.id), notice: "Item updated." }
-          # format.json { render :show, status: :ok, location: @section }
         else
           format.html { render :edit, status: :unprocessable_entity }
           format.json { render json: @item.errors, status: :unprocessable_entity }

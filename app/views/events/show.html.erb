@@ -8,6 +8,9 @@
 </div>
 <div class="wrapper">
     <div class="home_title"><%= @event.name %></div>
+    <div class="delete_wrapper">
+      <%= button_to "Delete Event", "/events/#{@event.id}", method: :delete, :class => "danger_button" %>
+    </div>
     <div class="notice"><%= notice %></div>
     
     <div id="sections">

@@ -11,7 +11,6 @@ class SectionsController < ApplicationController
     respond_to do |format|
       if @section.save
         format.html { redirect_to event_path(current_event.id), notice: "Section created." }
-        # format.json { render :show, status: :created, location: @section }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @section.errors, status: :unprocessable_entity }
@@ -26,7 +25,6 @@ class SectionsController < ApplicationController
     respond_to do |format|
       if @section.update(section_params)
         format.html { redirect_to event_path(current_event.id), notice: "Section updated." }
-        # format.json { render :show, status: :ok, location: @section }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @section.errors, status: :unprocessable_entity }
@@ -35,6 +33,10 @@ class SectionsController < ApplicationController
   end
 
   def destroy
+    @items = Item.where("section_id = '#{@section.id}'")
+    @items.each do |item|
+      item.destroy
+    end
     @section.destroy
 
     respond_to do |format|
