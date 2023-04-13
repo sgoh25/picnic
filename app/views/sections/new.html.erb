@@ -1,0 +1,12 @@
+<div class="top">
+    <div class="top_wrapper">
+        Picnic
+        <%= button_to "Home", event_path(current_event.id), method: :get %>
+    </div>
+</div>
+<div class="wrapper">
+<div class="form_wrapper">
+    <h1>New Section</h1>
+    <%= render "form", section: @section %><br>
+</div>
+</div>

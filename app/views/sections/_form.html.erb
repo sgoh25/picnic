@@ -1,0 +1,21 @@
+<%= form_with(model: section) do |form| %>
+  <div>
+    <%= form.text_field :name, placeholder: "Section Name" %>
+  </div><br>
+
+  <div class="hidden">
+    <%= form.text_field :event_id, value: current_event.id %>
+  </div>
+
+  <% if section.errors.any? %>
+    <div class="error">
+      <% section.errors.each do |error| %>
+        <%= error.full_message %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

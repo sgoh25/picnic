@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "events#new"
 
   resources :events, only: [:new, :create, :show]
-  resources :session, only: [:create, :destroy]
+  resources :sections, only: [:new, :create, :edit, :update, :destroy]
 
   get "/login", to: "sessions#login"
   post "/login", to: "sessions#create"

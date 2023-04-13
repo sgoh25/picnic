@@ -1,12 +1,26 @@
 <div class="top">
     <div class="top_wrapper">
-        Ranks
+        Picnic
         <div class="button_wrapper">
             <%= button_to "Log Out", logout_path, method: :delete %>
         </div>
     </div>
 </div>
 <div class="wrapper">
-    <h1>Home Page for: <%= @event.name %></h1>
-    <p>Body</p>
+    <div class="home_title"><%= @event.name %></div>
+    <p style="color: green"><%= notice %></p>
+    
+    <div id="sections">
+      <% @sections.each do |section| %>
+        <div class="section_wrapper">
+          <div class="section_name"><%= section.name %></div>
+
+          <div class="button_wrapper">
+            <%= button_to "Edit", edit_section_url(section), method: :get %>&nbsp;
+            <%= button_to "Delete", "/sections/#{section.id}", method: :delete %>
+          </div>
+        </div>
+      <% end %>
+      <%= button_to "Add Section", new_section_path, method: :get %>
+    </div>
 </div>
