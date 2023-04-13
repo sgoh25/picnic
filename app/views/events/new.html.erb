@@ -8,12 +8,14 @@
   <div class="form_wrapper">
     <h1>Create New Event</h1>
     <%= form_for @event do |f| %>
-        <%= f.text_field :name, placeholder: "Event Name" %><br><br>
-        <%= f.password_field :password, placeholder: "Password" %><br><br>
+        <%= f.text_field :name, placeholder: "Event Name" %><br>
+        <%= f.password_field :password, placeholder: "Password" %><br>
         <% if flash[:error] %>
             <div class="error"><%= flash[:error] %></div>
         <% end %>
-        <%= f.submit "Create" %>
+        <div class="submit_button">
+          <%= f.submit "Create", :class => "button" %>
+        </div>
     <% end %><br>
   </div>
 </div>

@@ -1,7 +1,7 @@
 <%= form_with(model: section) do |form| %>
   <div>
     <%= form.text_field :name, placeholder: "Section Name" %>
-  </div><br>
+  </div>
 
   <div class="hidden">
     <%= form.text_field :event_id, value: current_event.id %>
@@ -10,12 +10,12 @@
   <% if section.errors.any? %>
     <div class="error">
       <% section.errors.each do |error| %>
-        <%= error.full_message %>
+        <%= error.full_message %><br>
       <% end %>
     </div>
   <% end %>
 
-  <div>
-    <%= form.submit %>
+  <div class="submit_button">
+    <%= form.submit :id => "create", :class => "button" %>
   </div>
 <% end %>

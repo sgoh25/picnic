@@ -1,11 +1,11 @@
 <%= form_with(model: item) do |form| %>
   <div>
     <%= form.text_field :item, placeholder: "Item" %>
-  </div><br>
+  </div>
 
   <div>
-    <%= form.text_field :name, placeholder: "Name" %>
-  </div><br>
+    <%= form.text_field :name, placeholder: "Person Name" %>
+  </div>
 
   <div class="hidden">
     <%= form.text_field :section_id, value: item.section_id %>
@@ -14,12 +14,12 @@
   <% if item.errors.any? %>
     <div class="error">
       <% item.errors.each do |error| %>
-        <%= error.full_message %>
+        <%= error.full_message %><br>
       <% end %>
     </div>
   <% end %>
 
-  <div>
-    <%= form.submit %>
+  <div class="submit_button">
+    <%= form.submit :id => "create", :class => "button" %>
   </div>
 <% end %>
