@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete(:event_id)
+    session[:event_id] = nil
     @event = nil
     redirect_to root_path
   end

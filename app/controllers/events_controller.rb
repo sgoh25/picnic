@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :authorize, only: [:show]
+
   def new
     @event = Event.new
   end
