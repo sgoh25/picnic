@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :events, only: [:new, :create, :show]
   resources :sections, only: [:new, :create, :edit, :update, :destroy]
+  resources :items, only: [:new, :create, :edit, :update, :destroy]
 
   get "/login", to: "sessions#login"
   post "/login", to: "sessions#create"

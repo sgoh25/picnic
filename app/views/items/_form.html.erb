@@ -1,0 +1,25 @@
+<%= form_with(model: item) do |form| %>
+  <div>
+    <%= form.text_field :item, placeholder: "Item" %>
+  </div><br>
+
+  <div>
+    <%= form.text_field :name, placeholder: "Name" %>
+  </div><br>
+
+  <div class="hidden">
+    <%= form.text_field :section_id, value: item.section_id %>
+  </div>
+
+  <% if item.errors.any? %>
+    <div class="error">
+      <% item.errors.each do |error| %>
+        <%= error.full_message %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

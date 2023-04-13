@@ -2,7 +2,7 @@
     <div class="top_wrapper">
         Picnic
         <div class="button_wrapper">
-            <%= button_to "Log Out", logout_path, method: :delete %>
+            <%= button_to "Log Out", logout_path, method: :delete, :class => "button" %>
         </div>
     </div>
 </div>
@@ -13,14 +13,30 @@
     <div id="sections">
       <% @sections.each do |section| %>
         <div class="section_wrapper">
-          <div class="section_name"><%= section.name %></div>
+          <div class="section_top">
+            <div class="section_name"><%= section.name %></div>
 
-          <div class="button_wrapper">
-            <%= button_to "Edit", edit_section_url(section), method: :get %>&nbsp;
-            <%= button_to "Delete", "/sections/#{section.id}", method: :delete %>
+            <div class="button_wrapper">
+              <%= button_to "Edit", edit_section_url(section), method: :get, :class => "button" %>&nbsp;
+              <%= button_to "Delete", "/sections/#{section.id}", method: :delete, :class => "button" %>
+            </div>
           </div>
+          <% Item.where("section_id = '#{section.id}'").each do |item| %>
+            <div class="item_wrapper">
+              <div class="item_contents">
+                <%= item.item %><br>
+                <div class="person">By: <%= item.name %></div>
+              </div>
+
+              <div class="button_wrapper">
+                <%= button_to "Edit", edit_item_url(item), method: :get, :class => "button" %>&nbsp;
+                <%= button_to "Delete", "/items/#{item.id}", method: :delete, :class => "button" %>
+              </div>
+            </div>
+          <% end %>
+          <br><%= button_to "Add Item", new_item_path, method: :get, params: { :section_id => section.id }, :class => "button" %>
         </div>
       <% end %>
-      <%= button_to "Add Section", new_section_path, method: :get %>
+      <br><%= button_to "Add Section", new_section_path, method: :get, :class => "button" %>
     </div>
 </div>
