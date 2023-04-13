@@ -35,7 +35,7 @@ class EventsController < ApplicationController
     @event.destroy
 
     respond_to do |format|
-      format.html { redirect_to root_path, notice: "Event deleted." }
+      format.html { redirect_to root_path, notice: "Event deleted" }
       format.json { head :no_content }
     end
   end

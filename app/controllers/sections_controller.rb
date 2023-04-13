@@ -10,7 +10,7 @@ class SectionsController < ApplicationController
 
     respond_to do |format|
       if @section.save
-        format.html { redirect_to event_path(current_event.id), notice: "Section created." }
+        format.html { redirect_to event_path(current_event.id), notice: "Section created" }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @section.errors, status: :unprocessable_entity }
@@ -24,7 +24,7 @@ class SectionsController < ApplicationController
   def update
     respond_to do |format|
       if @section.update(section_params)
-        format.html { redirect_to event_path(current_event.id), notice: "Section updated." }
+        format.html { redirect_to event_path(current_event.id), notice: "Section updated" }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @section.errors, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class SectionsController < ApplicationController
     @section.destroy
 
     respond_to do |format|
-      format.html { redirect_to event_path(current_event.id), notice: "Section deleted." }
+      format.html { redirect_to event_path(current_event.id), notice: "Section deleted" }
       format.json { head :no_content }
     end
   end

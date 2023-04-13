@@ -3,7 +3,9 @@ class ApplicationController < ActionController::Base
 
   def authorize
     if !current_event
-      redirect_to root_path notice: "Entry Denied"
+      flash[:notice] = "403: Access Denied"
+      flash.keep
+      redirect_to root_path
     end
   end
 end

@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   
       respond_to do |format|
         if @item.save
-          format.html { redirect_to event_path(current_event.id), notice: "Item created." }
+          format.html { redirect_to event_path(current_event.id), notice: "Item created" }
         else
           format.html { render :new, status: :unprocessable_entity }
           format.json { render json: @item.errors, status: :unprocessable_entity }
@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
     def update
       respond_to do |format|
         if @item.update(item_params)
-          format.html { redirect_to event_path(current_event.id), notice: "Item updated." }
+          format.html { redirect_to event_path(current_event.id), notice: "Item updated" }
         else
           format.html { render :edit, status: :unprocessable_entity }
           format.json { render json: @item.errors, status: :unprocessable_entity }
@@ -36,7 +36,7 @@ class ItemsController < ApplicationController
       @item.destroy
   
       respond_to do |format|
-        format.html { redirect_to event_path(current_event.id), notice: "Item deleted." }
+        format.html { redirect_to event_path(current_event.id), notice: "Item deleted" }
         format.json { head :no_content }
       end
     end
