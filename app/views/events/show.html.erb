@@ -8,7 +8,7 @@
 </div>
 <div class="wrapper">
     <div class="home_title"><%= @event.name %></div>
-    <p style="color: green"><%= notice %></p>
+    <div class="notice"><%= notice %></div>
     
     <div id="sections">
       <% @sections.each do |section| %>
@@ -18,7 +18,7 @@
 
             <div class="button_wrapper">
               <%= button_to "Edit", edit_section_url(section), method: :get, :class => "button" %>&nbsp;
-              <%= button_to "Delete", "/sections/#{section.id}", method: :delete, :class => "button" %>
+              <%= button_to "Delete", "/sections/#{section.id}", method: :delete, :class => "danger_button" %>
             </div>
           </div>
           <% Item.where("section_id = '#{section.id}'").each do |item| %>
@@ -30,7 +30,7 @@
 
               <div class="button_wrapper">
                 <%= button_to "Edit", edit_item_url(item), method: :get, :class => "button" %>&nbsp;
-                <%= button_to "Delete", "/items/#{item.id}", method: :delete, :class => "button" %>
+                <%= button_to "Delete", "/items/#{item.id}", method: :delete, :class => "danger_button" %>
               </div>
             </div>
           <% end %>
