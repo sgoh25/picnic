@@ -20,7 +20,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @sections = Section.where("event_id = '#{@event.id}'")
+    @sections = Section.where("event_id = '#{@event.id}'").order("name ASC")
   end
 
   def destroy

@@ -24,7 +24,7 @@
               <%= button_to "Delete", "/sections/#{section.id}", method: :delete, :class => "danger_button" %>
             </div>
           </div>
-          <% Item.where("section_id = '#{section.id}'").each do |item| %>
+          <% Item.where("section_id = '#{section.id}'").order("item ASC").each do |item| %>
             <div class="item_wrapper">
               <div class="item_contents">
                 <%= item.item %><br>
