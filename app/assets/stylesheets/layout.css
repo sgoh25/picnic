@@ -59,6 +59,12 @@ body {
   background-color: rgb(241, 241, 241);
 }
 
+.error {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: crimson;
+}
+
 .hidden {
   display: none;
 }

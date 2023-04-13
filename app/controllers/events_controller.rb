@@ -9,8 +9,9 @@ class EventsController < ApplicationController
       session[:event_id] = @event.id
       redirect_to event_path(@event.id)
     else
-      message = "Event name is already taken!"
-      redirect_to root_path notice: message
+      flash[:error] = "'#{@event.name}' is already taken!"
+      flash.keep
+      redirect_to root_path
     end
   end
 

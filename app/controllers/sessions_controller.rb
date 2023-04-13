@@ -8,8 +8,9 @@ class SessionsController < ApplicationController
       session[:event_id] = @event.id
       redirect_to event_path(@event.id)
     else
-      message = "Incorrect username/password"
-      redirect_to login_path notice: message
+      flash[:error] = "Incorrect username/password"
+      flash.keep
+      redirect_to login_path
     end
   end
 

@@ -10,6 +10,9 @@
     <%= form_for @event do |f| %>
         <%= f.text_field :name, placeholder: "Event Name" %><br><br>
         <%= f.password_field :password, placeholder: "Password" %><br><br>
+        <% if flash[:error] %>
+            <div class="error"><%= flash[:error] %></div>
+        <% end %>
         <%= f.submit "Create" %>
     <% end %><br>
   </div>
