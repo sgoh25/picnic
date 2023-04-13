@@ -1,11 +1,11 @@
 <div class="top">
     <div class="top_wrapper">
-        Ranks
+        Picnic
         <%= button_to "Create New", root_path, method: :get %>
     </div>
 </div>
 <div class="wrapper">
-  <div class="login_wrapper">
+  <div class="form_wrapper">
     <h1>Login</h1>
     <%= form_tag "/login" do %>
         <%= text_field_tag :name, nil, placeholder: "Event Name" %><br><br>
